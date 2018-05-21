@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<BookList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="books.xsd">
+<Book>
+<id>1</id>
+<author>
+<firstName>SomeName1</firstName>
+<lastName>SomeLastName1</lastName>
+</author>
+<author>
+<firstName>SomeName2</firstName>
+<lastName>SomeLastName2</lastName>
+</author>
+<name>SomeBook1</name>
+<ISBN>123456789</ISBN>
+<cost>2.5</cost>
+</Book>
+<Book>
+<id>2</id>
+<author>
+<firstName>SomeName3</firstName>
+<lastName>SomeLastName3</lastName>
+</author>
+<name>SomeBook2</name>
+<ISBN>234567891</ISBN>
+<cost>3.2</cost>
+</Book>
+<Book>
+<id>3</id>
+<author>
+<firstName>SomeName4</firstName>
+<lastName>SomeLastName4</lastName>
+</author>
+<name>SomeBook3</name>
+<ISBN>23456789</ISBN>
+<cost>4.2</cost>
+</Book>
+</BookList>

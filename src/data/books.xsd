@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    <xs:element name="BookList" type="BookList"/>
+
+   <xs:complexType name="Book">
+       <xs:sequence>
+           <xs:element name="id" type="xs:long"/>
+           <xs:element name="author" type="Author" minOccurs="1" maxOccurs="unbounded"/>
+           <xs:element name="name" type="xs:string"/>
+           <xs:element name="ISBN" type="xs:int"/>
+           <xs:element name="cost" type="xs:double"/>
+       </xs:sequence>
+   </xs:complexType>
+
+    <xs:complexType name="BookList">
+        <xs:sequence>
+            <xs:element type="Book" name="Book" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Author">
+        <xs:sequence>
+        <xs:element name="firstName" type="xs:string"/>
+        <xs:element name="lastName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
