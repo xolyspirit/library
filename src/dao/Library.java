@@ -1,5 +1,4 @@
 package dao;
-
 import model.Book;
 import org.hibernate.Session;
 import org.w3c.dom.Document;
@@ -19,18 +18,24 @@ import javax.xml.validation.ValidatorHandler;
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
-
+/**Класс библиотеки
+ * @version 1.0
+ * @author Xolyspirit */
 public class Library {
+    /**Ссылка на XML-файл в виде файла*/
     private File booksFile;
+    /**Пусть к XML-файлу*/
     private String path;
+    /**Переменная, нужна для формирования строки ответа*/
     private StringBuilder answer = new StringBuilder();
+    /**Список книг полученных из XML-файла*/
     private List<Book> books;
-
+    /**Конструктор принимающий @param path путь к XML-файлу, и создающий экземпляр File*/
     public Library(String path) {
         this.path = path;
         booksFile = new File(path);
     }
-
+    /**Читаем с помощью SAX*/
     public String readBySAX() {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         try {
@@ -48,7 +53,7 @@ public class Library {
         }
         return answer.toString();
     }
-
+    /**Читаем с помощью StAX*/
     public String readByStAX(){
         StaxParser parser = new StaxParser();
         books = parser.parse(path);
@@ -58,7 +63,7 @@ public class Library {
         }
         return answer.toString();
     }
-
+    /**Читаем с помощью DOM*/
     public String readByDOM(){
         DomParser parser = new DomParser();
         books = parser.parse(path);
@@ -68,7 +73,7 @@ public class Library {
         }
         return answer.toString();
     }
-
+    /**Читаем данные из БД */
     @SuppressWarnings("unchecked")
     public List<Book> readBD(){
         System.out.println("Reading from DB...");
@@ -80,7 +85,7 @@ public class Library {
         session.close();
         return books;
     }
-
+    /**Сохраняем XML-файл*/
     public void saveWithXML(List<Book> books){
         System.out.println("Saving with XML...");
         try {

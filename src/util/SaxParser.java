@@ -1,5 +1,4 @@
 package util;
-
 import model.Author;
 import model.Book;
 import org.xml.sax.Attributes;
@@ -8,24 +7,28 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**Класс парсера SAX
+ * @version 1.0
+ * @author Xolyspirit */
 public class SaxParser extends DefaultHandler {
+    /**Техническая переменная. необходимая для работы парсера*/
     private String thisElement;
+    /**Список книг {@link Book}*/
     private List<Book> books = new ArrayList<>();
+    /**Книга {@link Book}*/
     private Book book;
+    /**Автор {@link Author} книги */
     private Author author;
-
+    /**Переопреденные методы, для работы парсера*/
     @Override
     public void startDocument() throws SAXException {
         System.out.println("Start parse XML wit SAX parser...");
     }
-
     @Override
     public void startElement(String namespaceURI, String localName,
                              String qName, Attributes atts) throws SAXException {
         thisElement = qName;
     }
-
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (thisElement.equals("Book")) {
@@ -55,13 +58,11 @@ public class SaxParser extends DefaultHandler {
             book.setCost(new Double(new String(ch, start,length)));
         }
     }
-
     @Override
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
         thisElement = "";
     }
-
-
+    /**Выдаем @return books результат*/
     public List<Book> getAnswer() {
         return books;
     }

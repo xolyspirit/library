@@ -11,9 +11,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.util.ArrayList;
 import java.util.List;
-
+/**Класс парсера DOM
+ * @version 1.0
+ * @author Xolyspirit */
 public class DomParser {
-
+    /**Парсим XML-файл найденный по принятому @param path пути
+     * возвращаем @return books распарсенный список книг*/
     public List<Book> parse(String path){
         List<Book> books = new  ArrayList();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

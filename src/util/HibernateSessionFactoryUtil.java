@@ -1,5 +1,4 @@
 package util;
-
 import model.Author;
 import model.Book;
 import org.hibernate.SessionFactory;
@@ -7,12 +6,12 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import java.io.InputStream;
 import java.util.Properties;
-
+/**Класс конфигурации Hibernate
+ * @version 1.0
+ * @author Xolyspirit */
 public class HibernateSessionFactoryUtil {
     private static SessionFactory sessionFactory;
-
     private HibernateSessionFactoryUtil(){}
-
     public static SessionFactory getSessionFactory(InputStream is) {
         if (sessionFactory == null) {
             try {
