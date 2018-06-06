@@ -9,25 +9,25 @@ import java.util.Objects;
 @Entity
 @Table(name = "book")
 public class Book {
+    /**id книги в базе*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    /**id книги в базе*/
     private int id;
+    /**Авторы {@link Author} принимавшие участие, в написаннии данной книги*/
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinTable(name = "book_author",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
-    /**Авторы {@link Author} принимавшие участие, в написаннии данной книги*/
     private List<Author> authors = new ArrayList<>();
-    @Column(name = "cost")
     /**Стоимость книги*/
+    @Column(name = "cost")
     private double cost;
-    @Column(name = "isbn")
     /**Номер ISBN книги*/
+    @Column(name = "isbn")
     private int ISBN;
-    @Column(name = "name")
     /**Название книги*/
+    @Column(name = "name")
     private String name;
     /**Переопределенный toString() для выдачи корректного описания книги*/
     @Override

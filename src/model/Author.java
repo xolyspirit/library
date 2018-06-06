@@ -8,19 +8,18 @@ import java.util.Objects;
 @Entity
 @Table(name = "author")
 public class Author {
+    /**id обьекта в БД*/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    /**id обьекта в БД*/
     private int id;
     @Column(name = "first_name")
-    /**Имя автора*/
     private String firstName;
+    /**Фамилия автора */
     @Column(name = "last_name")
-    /**Фамилия автора*/
     private String lastName;
-    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "authors")
     /**Книги {@link Book}, в написании которых автор имел участие*/
+    @ManyToMany(fetch = FetchType.EAGER,mappedBy = "authors")
     private List<Book> books;
     /**Стандартные геттеры и сеттеры*/
     public int getId() {
